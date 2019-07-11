@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Test.Employee.Business.Interfaces;
 
@@ -18,9 +17,9 @@ namespace Test.Employee.API
         }
 
         [HttpGet]
-        public IEnumerable<Test.Employee.Entities.Employee> Get(int id = 0)
+        public async Task<IEnumerable<Entities.Employee>> Get(int id = 0)
         {
-            return new List<Test.Employee.Entities.Employee>();
+            return await this.employeeService.Get(id).ConfigureAwait(false);
         }
 
     }
