@@ -33,7 +33,8 @@ namespace Test.Employee
                             "~/bundles/AngularOutput/scripts.*",
                             "~/bundles/AngularOutput/vendor.*",
                             "~/bundles/AngularOutput/runtime.*",
-                            "~/bundles/AngularOutput/main.*"));
+                            "~/bundles/AngularOutput/main.*",
+                            "~/bundles/AngularOutput/*.js"));
 
             bundles.Add(new StyleBundle("~/Content/Angular")
               .Include("~/bundles/AngularOutput/styles.*"));

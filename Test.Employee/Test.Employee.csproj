@@ -168,6 +168,8 @@
     <Content Include="Angular\e2e\protractor.conf.js" />
     <Content Include="Angular\src\app\app.component.css" />
     <Content Include="Angular\src\app\app.component.html" />
+    <Content Include="Angular\src\app\employee-administration\employee-administration.component.html" />
+    <Content Include="Angular\src\app\employee-administration\employee-list\employee-list.component.html" />
     <Content Include="Angular\src\favicon.ico" />
     <Content Include="Angular\src\index.html" />
     <Content Include="Angular\src\karma.conf.js" />
@@ -245,6 +247,13 @@
     <TypeScriptCompile Include="Angular\src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="Angular\src\app\app.component.ts" />
     <TypeScriptCompile Include="Angular\src\app\app.module.ts" />
+    <TypeScriptCompile Include="Angular\src\app\employee-administration\employee-administration-routing.module.ts" />
+    <TypeScriptCompile Include="Angular\src\app\employee-administration\employee-administration.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\employee-administration\employee-administration.module.ts" />
+    <TypeScriptCompile Include="Angular\src\app\employee-administration\employee-list\employee-list.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\employee-administration\employee.service.ts" />
+    <TypeScriptCompile Include="Angular\src\app\models\employee.ts" />
+    <TypeScriptCompile Include="Angular\src\app\shared\global.service.ts" />
     <TypeScriptCompile Include="Angular\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="Angular\src\environments\environment.ts" />
     <TypeScriptCompile Include="Angular\src\main.ts" />

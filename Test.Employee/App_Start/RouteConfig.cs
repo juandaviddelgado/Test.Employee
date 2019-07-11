@@ -18,6 +18,12 @@ namespace Test.Employee
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // Default route to spa
+            routes.MapRoute(
+                "DeepLink",
+                "{*pathInfo}",
+                defaults: new { controller = "Home", action = "Index" });
         }
     }
 }
