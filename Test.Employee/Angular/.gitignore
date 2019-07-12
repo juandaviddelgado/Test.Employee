@@ -4,10 +4,10 @@
 /dist
 /tmp
 /out-tsc
+/Bundles
 
 # dependencies
 /node_modules
-/Bundles
 
 # profiling files
 chrome-profiler-events.json
