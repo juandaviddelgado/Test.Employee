@@ -325,7 +325,7 @@ var EmployeeAdministrationModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <input type=\"number\" [(ngModel)]=\"employeeId\" class=\"form-control\" min=\"0\"/>\r\n  <button type=\"button\" class=\" btn btn-primary form-control\" (click)=\"getEmployeeList()\"> Get Employee(s) </button>\r\n</div>\r\n<div class=\"row\" >\r\n\r\n  <table class=\"table\">\r\n    <thead class=\"thead-dark\">\r\n      <tr>\r\n        <th scope=\"col\">Id</th>\r\n        <th scope=\"col\">Name</th>\r\n        <th scope=\"col\">Anual Salary</th>\r\n        <th scope=\"col\">Contract Type</th>\r\n        <th scope=\"col\">Hourly Salary</th>\r\n        <th scope=\"col\">Monthly Salary</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"employeeList && employeeList.length > 0\">\r\n      <tr *ngFor=\"let row of employeeList\">\r\n        <th scope=\"row\">{{row.id}}</th>\r\n        <td>{{row.name}}</td>\r\n        <td>{{row.anualSalary}}</td>\r\n        <td>{{row.contractTypeName}}</td>\r\n        <td>{{row.hourlySalary}}</td>\r\n        <td>{{row.monthlySalary}}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <input type=\"number\" [(ngModel)]=\"employeeId\" class=\"form-control form-group\" min=\"0\"/>\r\n  <span class=\"form-group text-danger\" *ngIf=\"loading\">loading...</span>\r\n  <button type=\"button\" class=\" btn btn-primary form-control form-group\" (click)=\"getEmployeeList()\"> Get Employee(s) </button>\r\n</div>\r\n<div class=\"row\" >\r\n\r\n  <table class=\"table\">\r\n    <thead class=\"thead-dark\">\r\n      <tr>\r\n        <th scope=\"col\">Id</th>\r\n        <th scope=\"col\">Name</th>\r\n        <th scope=\"col\">Anual Salary</th>\r\n        <th scope=\"col\">Contract Type</th>\r\n        <th scope=\"col\">Hourly Salary</th>\r\n        <th scope=\"col\">Monthly Salary</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"employeeList && employeeList.length > 0\">\r\n      <tr *ngFor=\"let row of employeeList\">\r\n        <th scope=\"row\">{{row.id}}</th>\r\n        <td>{{row.name}}</td>\r\n        <td>{{row.anualSalary}}</td>\r\n        <td>{{row.contractTypeName}}</td>\r\n        <td>{{row.hourlySalary}}</td>\r\n        <td>{{row.monthlySalary}}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -353,9 +353,12 @@ var EmployeeListComponent = /** @class */ (function () {
     }
     EmployeeListComponent.prototype.getEmployeeList = function () {
         var _this = this;
+        this.loading = true;
         this.employeeService.get(this.employeeId).subscribe(function (result) {
             _this.employeeList = result;
+            _this.loading = false;
         }, function (error) {
+            _this.loading = false;
             console.log(error);
         });
     };

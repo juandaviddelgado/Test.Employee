@@ -1,6 +1,7 @@
 <div class="row">
-  <input type="number" [(ngModel)]="employeeId" class="form-control" min="0"/>
-  <button type="button" class=" btn btn-primary form-control" (click)="getEmployeeList()"> Get Employee(s) </button>
+  <input type="number" [(ngModel)]="employeeId" class="form-control form-group" min="0"/>
+  <span class="form-group text-danger" *ngIf="loading">loading...</span>
+  <button type="button" class=" btn btn-primary form-control form-group" (click)="getEmployeeList()"> Get Employee(s) </button>
 </div>
 <div class="row" >
 
