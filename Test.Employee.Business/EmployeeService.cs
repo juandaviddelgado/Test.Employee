@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Test.Employee.Business.Interfaces;
 using Test.Employee.DataAccess.Interfaces;
+using Test.Employee.Entities.Factory;
 
 namespace Test.Employee.Business
 {
@@ -15,9 +17,23 @@ namespace Test.Employee.Business
             this.employeeRepository = employeeRepository;
         }
 
-        public async Task<IEnumerable<Entities.Employee>> Get(int i = 0)
+        public async Task<IEnumerable<Entities.Employee>> Get(int id = 0)
         {
-            return await this.employeeRepository.Get().ConfigureAwait(false);
+            IEnumerable<Entities.Employee> employeeList = await this.employeeRepository.Get().ConfigureAwait(false);
+
+            if(id != 0)
+            {
+                employeeList = employeeList.Where(row => row.Id == id);
+            }
+
+            employeeList = employeeList.Select(row =>
+            {
+                row = (Entities.Employee)EmployeeGatewayFactory.CreateEmployeeGateway(row);
+                row.CalculateAnualSalary();
+                return row;
+            });
+
+            return employeeList;
         }
     }
 
