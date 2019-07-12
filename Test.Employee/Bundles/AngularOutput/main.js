@@ -287,6 +287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _employee_administration_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./employee-administration-routing.module */ "./src/app/employee-administration/employee-administration-routing.module.ts");
 /* harmony import */ var _employee_list_employee_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./employee-list/employee-list.component */ "./src/app/employee-administration/employee-list/employee-list.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
 
 
 
@@ -304,6 +306,7 @@ var EmployeeAdministrationModule = /** @class */ (function () {
             ],
             imports: [
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"],
                 _employee_administration_routing_module__WEBPACK_IMPORTED_MODULE_3__["EmployeeAdministrationRoutingModule"]
             ]
         })
@@ -322,7 +325,7 @@ var EmployeeAdministrationModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-xs-12\">\r\n  <input type=\"number\" [(ngModel)]=\"employeeId\" class=\"form-control\"/>\r\n  <button type=\"button\" class=\" btn btn-primary\" (click)=\"getEmployeeList()\"> Get Employee(s) </button>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <input type=\"number\" [(ngModel)]=\"employeeId\" class=\"form-control\" min=\"0\"/>\r\n  <button type=\"button\" class=\" btn btn-primary form-control\" (click)=\"getEmployeeList()\"> Get Employee(s) </button>\r\n</div>\r\n<div class=\"row\" >\r\n\r\n  <table class=\"table\">\r\n    <thead class=\"thead-dark\">\r\n      <tr>\r\n        <th scope=\"col\">Id</th>\r\n        <th scope=\"col\">Name</th>\r\n        <th scope=\"col\">Anual Salary</th>\r\n        <th scope=\"col\">Contract Type</th>\r\n        <th scope=\"col\">Hourly Salary</th>\r\n        <th scope=\"col\">Monthly Salary</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"employeeList && employeeList.length > 0\">\r\n      <tr *ngFor=\"let row of employeeList\">\r\n        <th scope=\"row\">{{row.id}}</th>\r\n        <td>{{row.name}}</td>\r\n        <td>{{row.anualSalary}}</td>\r\n        <td>{{row.contractTypeName}}</td>\r\n        <td>{{row.hourlySalary}}</td>\r\n        <td>{{row.monthlySalary}}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -346,6 +349,7 @@ var EmployeeListComponent = /** @class */ (function () {
     function EmployeeListComponent(employeeService) {
         this.employeeService = employeeService;
         this.employeeId = 0;
+        this.employeeList = [];
     }
     EmployeeListComponent.prototype.getEmployeeList = function () {
         var _this = this;
@@ -507,7 +511,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\user\Repos\Test.Employee\Test.Employee\Angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\user\Repos\Test.Employee\Test.Employee\Angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

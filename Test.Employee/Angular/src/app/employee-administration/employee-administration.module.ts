@@ -3,6 +3,7 @@ import { EmployeeAdministrationComponent } from './employee-administration.compo
 import { EmployeeAdministrationRoutingModule } from './employee-administration-routing.module';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     FormsModule,
+    CommonModule,
     EmployeeAdministrationRoutingModule
   ]
 })

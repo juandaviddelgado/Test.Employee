@@ -1,4 +1,30 @@
-<div class="col-xs-12">
-  <input type="number" [(ngModel)]="employeeId" class="form-control"/>
-  <button type="button" class=" btn btn-primary" (click)="getEmployeeList()"> Get Employee(s) </button>
+<div class="row">
+  <input type="number" [(ngModel)]="employeeId" class="form-control" min="0"/>
+  <button type="button" class=" btn btn-primary form-control" (click)="getEmployeeList()"> Get Employee(s) </button>
+</div>
+<div class="row" >
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Anual Salary</th>
+        <th scope="col">Contract Type</th>
+        <th scope="col">Hourly Salary</th>
+        <th scope="col">Monthly Salary</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="employeeList && employeeList.length > 0">
+      <tr *ngFor="let row of employeeList">
+        <th scope="row">{{row.id}}</th>
+        <td>{{row.name}}</td>
+        <td>{{row.anualSalary}}</td>
+        <td>{{row.contractTypeName}}</td>
+        <td>{{row.hourlySalary}}</td>
+        <td>{{row.monthlySalary}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>

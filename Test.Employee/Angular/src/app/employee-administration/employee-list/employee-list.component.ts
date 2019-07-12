@@ -9,7 +9,7 @@ import { Employee } from '../../models/employee';
 export class EmployeeListComponent {
 
   public employeeId: number = 0;
-  public employeeList: Array<Employee>;
+  public employeeList: Array<Employee> = [];
 
   constructor(private employeeService: EmployeeService) {
 
